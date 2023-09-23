@@ -25,6 +25,7 @@ export const NavItem: React.FC<NavItemProps> = ({
     className
 }) => {
 
+    
     if (!data.sublinks) {
         return (
             <NavigationMenuItem>
@@ -38,12 +39,12 @@ export const NavItem: React.FC<NavItemProps> = ({
     }
 
     return (
-        <NavigationMenuItem className="relative"> 
-            <NavigationMenuTrigger className={ className }> 
+        <NavigationMenuItem className="relative group/content"> 
+            <NavigationMenuTrigger data-trigger={`${data.label}`} className={ className }> 
                         {data.label}
             </NavigationMenuTrigger>
              
-           <NavigationMenuContent>
+           <NavigationMenuContent className="NavigationMenuContent">
                 <ul className="pl-2 pr-8 pb-1.5 space-y-3 ">
                     { data.sublinks.map((sublink) => (
                         <li key={sublink.href}>
@@ -56,8 +57,7 @@ export const NavItem: React.FC<NavItemProps> = ({
                     ))}
                 </ul> 
             </NavigationMenuContent>
-
-            <NavigationMenuViewport />
+          
         </NavigationMenuItem >  
     )
 }

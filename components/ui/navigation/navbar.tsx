@@ -21,7 +21,7 @@ const Navbar = async () => {
         {label: "Home", href: "/"},
         {label: "Work", href: "/categories", sublinks: categoryLinks},
         {label: "Blog", href: "/blog"},
-        {label: "Store", href: "/store"},
+        {label: "Store", href: "/store", sublinks: [{label: "link 1", href: "/link1"}, {label: "this is also a store link", href: "/link2"}]},
         {label: "About", href: "/about"}, 
     ]
 
