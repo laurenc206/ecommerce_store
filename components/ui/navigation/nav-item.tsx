@@ -39,23 +39,25 @@ export const NavItem: React.FC<NavItemProps> = ({
     }
 
     return (
-        <NavigationMenuItem className="relative group/content"> 
+        <NavigationMenuItem className="relative"> 
             <NavigationMenuTrigger data-trigger={`${data.label}`} className={ className }> 
                         {data.label}
             </NavigationMenuTrigger>
              
-           <NavigationMenuContent className="NavigationMenuContent">
-                <ul className="pl-2 pr-8 pb-1.5 space-y-3 ">
-                    { data.sublinks.map((sublink) => (
-                        <li key={sublink.href}>
-                            <Link href={sublink.href} legacyBehavior passHref>
-                                <NavigationMenuLink className="text-body  hover:text-neutral-500 truncate">
-                                    {sublink.label}
-                                </NavigationMenuLink>
-                            </Link>
-                        </li>
-                    ))}
-                </ul> 
+           <NavigationMenuContent >
+                <div className=" bg-white opacity-95 w-max md:max-w-[140px] lg:max-w-[160px]">
+                    <ul className="pl-2 pr-8 pb-1.5 space-y-3">
+                        { data.sublinks.map((sublink) => (
+                            <li key={sublink.href}>
+                                <Link href={sublink.href} legacyBehavior passHref>
+                                    <NavigationMenuLink className="text-body  hover:text-neutral-500 ">
+                                        {sublink.label}
+                                    </NavigationMenuLink>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul> 
+                </div>
             </NavigationMenuContent>
           
         </NavigationMenuItem >  

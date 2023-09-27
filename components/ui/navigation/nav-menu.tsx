@@ -32,11 +32,9 @@ export const NavMenu: React.FC<NavContentProps> = ({
 
     return (
         <NavigationMenu className="ml-4">
-            <NavigationMenuList className="md:flex">
+            <NavigationMenuList className="flex">
             {data.map((link) => (
-     
                 <NavItem data={link} key={link.href} className="font-semibold uppercase text-sm md:text-body lg:text-lg duration-500"/>
-   
             ))}
             </NavigationMenuList>
         </NavigationMenu>

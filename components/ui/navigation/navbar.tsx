@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import Container from "@/components/ui/container";
-import { NavContent } from "./nav-content";
 import getCategories from "@/actions/get-categories"
 import { NavMenu } from "./nav-menu";
 
@@ -21,7 +20,7 @@ const Navbar = async () => {
         {label: "Home", href: "/"},
         {label: "Work", href: "/categories", sublinks: categoryLinks},
         {label: "Blog", href: "/blog"},
-        {label: "Store", href: "/store", sublinks: [{label: "link 1", href: "/link1"}, {label: "this is also a store link", href: "/link2"}]},
+        {label: "Store", href: "/store", sublinks: [{label: "link 1", href: "/link1"}, {label: "this is also a really long store link so lets see how it renders because its long", href: "/link2"}]},
         {label: "About", href: "/about"}, 
     ]
 
