@@ -1,8 +1,7 @@
-import Link from "next/link";
-
 import Container from "@/components/ui/container";
 import getCategories from "@/actions/get-categories"
 import { NavMenu } from "./nav-menu";
+import MobileMenu from "./mobile-menu";
 
 export const revalidate = 0;
 
@@ -20,7 +19,7 @@ const Navbar = async () => {
         {label: "Home", href: "/"},
         {label: "Work", href: "/categories", sublinks: categoryLinks},
         {label: "Blog", href: "/blog"},
-        {label: "Store", href: "/store", sublinks: [{label: "link 1", href: "/link1"}, {label: "this is also a really long store link so lets see how it renders because its long", href: "/link2"}]},
+        {label: "Store", href: "/store", sublinks: [{label: "link 1", href: "/link1"}, {label: "this is also a", href: "/link2"}]},
         {label: "About", href: "/about"}, 
     ]
 
@@ -29,7 +28,7 @@ const Navbar = async () => {
         <div className="sticky top-0 z-50 bg-white bg-opacity-90">
            
             <Container>       
-                <div className="px-4 sm:px-6 lg:px-8 flex  h-12 items-center ">
+                <div className="px-4 sm:px-6 lg:px-8 flex h-12 items-center ">
                     
                     <div className="tracking-wide text-2xl sm:text-3xl font-bold uppercase truncate">
                         {title}
@@ -37,9 +36,10 @@ const Navbar = async () => {
 
                     <div className="ml-auto">
                         <NavMenu data={navItems} />
+                        <MobileMenu data={navItems} />
+                       
                     </div>
                 </div>
-                  
 
             </Container>
         </div>

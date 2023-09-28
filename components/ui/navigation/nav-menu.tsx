@@ -3,9 +3,11 @@
 import {
     NavigationMenu,
     NavigationMenuList,
+    NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
 import { NavItem } from "./nav-item"
 import { useEffect, useState } from "react"
+import MobileMenu from "./mobile-menu"
 
 interface NavLink {
     label: string,
@@ -13,11 +15,11 @@ interface NavLink {
     sublinks?: { label:string, href: string }[]
 }
 
-interface NavContentProps {
+interface NavMenuProps {
     data: NavLink[]
 }
 
-export const NavMenu: React.FC<NavContentProps> = ({
+export const NavMenu: React.FC<NavMenuProps> = ({
     data
 }) => {
     const [isMounted, setIsMounted] = useState(false);
@@ -31,11 +33,13 @@ export const NavMenu: React.FC<NavContentProps> = ({
     }
 
     return (
-        <NavigationMenu className="ml-4">
-            <NavigationMenuList className="flex">
-            {data.map((link) => (
-                <NavItem data={link} key={link.href} className="font-semibold uppercase text-sm md:text-body lg:text-lg duration-500"/>
-            ))}
+        <NavigationMenu className="md:flex hidden">
+            <NavigationMenuList > 
+                
+                {data.map((link) => (
+                    <NavItem data={link} key={link.href} className="font-semibold uppercase text-sm md:text-body lg:text-lg duration-500"/>
+                ))}
+                
             </NavigationMenuList>
         </NavigationMenu>
     )

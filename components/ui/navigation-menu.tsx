@@ -12,7 +12,7 @@ const NavigationMenu = React.forwardRef<
   <NavigationMenuPrimitive.Root
     ref={ref}
     className={cn(
-      "relative z-10 flex max-w-max flex-1 items-center justify-center",
+      "z-10 md:flex max-w-max flex-1 items-center justify-center",
       className
     )}
     {...props}
@@ -31,7 +31,7 @@ const NavigationMenuList = React.forwardRef<
   <NavigationMenuPrimitive.List
     ref={ref}
     className={cn(
-      "flex flex-1 list-none items-center justify-center space-x-1 md:space-x-4 lg:space-x-6",
+      "md:flex flex-1 list-none items-center justify-center space-x-1 md:space-x-4 lg:space-x-6",
       className
     )}
     {...props}
@@ -42,7 +42,7 @@ NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName
 const NavigationMenuItem = NavigationMenuPrimitive.Item
 
 const navigationMenuTriggerStyle = cva(
-  "inline-flex h-8 w-max items-center justify-center px-1 transition-colors focus:text-accent-foreground focus:outline-none disabled:pointer-events-none data-[active]:underline"
+  "inline-flex h-8 w-max items-center justify-center px-1 transition-colors focus:text-accent-foreground focus:outline-none disabled:pointer-events-none"
 )
 
 const NavigationMenuTrigger = React.forwardRef<
@@ -51,12 +51,12 @@ const NavigationMenuTrigger = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Trigger
     ref={ref}
-    className={cn(navigationMenuTriggerStyle(), "group peer", className)}
+    className={cn(navigationMenuTriggerStyle(), "group", className)}
     {...props}
   >
     {children}{" "}
     <ChevronDownIcon
-      className="relative top-[1px] ml-.5 lg:ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180"
+      className="static top-[1px] ml-1 lg:ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180 hidden md:block"
       aria-hidden="true"
     />
   </NavigationMenuPrimitive.Trigger>
@@ -70,7 +70,7 @@ const NavigationMenuContent = React.forwardRef<
   <NavigationMenuPrimitive.Content
     ref={ref}
     className={cn(
-      "left-0 top-10 data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 absolute",
+      "right-0 top-12 md:left-0 md:top-10 data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 absolute",
       className
     )}
     {...props}
@@ -84,10 +84,10 @@ const NavigationMenuViewport = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
 >(({ className, ...props }, ref) => (
-  <div className={cn("absolute top-9  flex justify-center")}>
+  <div className={cn("absolute flex justify-center")}>
     <NavigationMenuPrimitive.Viewport
       className={cn(
-        "origin-top-center relative mt-1 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden  text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)] bg-white bg-opacity-90",
+        "origin-top-center h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden  text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)] ",
         className
       )}
       ref={ref}

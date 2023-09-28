@@ -7,7 +7,6 @@ import {
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuTrigger,
-    NavigationMenuViewport,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { cn } from "@/lib/utils"
@@ -39,14 +38,14 @@ export const NavItem: React.FC<NavItemProps> = ({
     }
 
     return (
-        <NavigationMenuItem className="relative"> 
-            <NavigationMenuTrigger data-trigger={`${data.label}`} className={ className }> 
+        <NavigationMenuItem className="md:relative"> 
+            <NavigationMenuTrigger className={ className }> 
                         {data.label}
             </NavigationMenuTrigger>
              
            <NavigationMenuContent >
                 <div className=" bg-white opacity-95 w-max md:max-w-[140px] lg:max-w-[160px]">
-                    <ul className="pl-2 pr-8 pb-1.5 space-y-3">
+                    <ul className=" pl-2 pr-8 pb-1.5 space-y-3">
                         { data.sublinks.map((sublink) => (
                             <li key={sublink.href}>
                                 <Link href={sublink.href} legacyBehavior passHref>
