@@ -41,10 +41,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                     </NavigationMenuTrigger>
                     
                     <NavigationMenuContent >
-                        <div className=" bg-white opacity-95 px-4 sm:px-6 py-2 w-[300px]">
+                        <div className=" bg-white opacity-95 px-4 sm:px-6 py-2 w-screen">
                             <ul className="pb-1.5 space-y-2">
                             {data.map((link) => (
-                                <MobileNavItem data={link} className="font-bold text-body duration-500"/>
+                                <MobileNavItem key={link.href} data={link} className="font-bold text-body duration-500"/>
                             ))}
                             </ul> 
                         </div>

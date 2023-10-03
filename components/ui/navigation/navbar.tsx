@@ -25,18 +25,19 @@ const Navbar = async () => {
 
  
     return (
-        <div className="sticky top-0 z-50 bg-white bg-opacity-90">
+        <div className="sticky top-0 z-50 lg:bg-white bg-opacity-30 ">
            
             <Container>       
-                <div className="px-4 sm:px-6 lg:px-8 flex h-12 items-center ">
+                <div className="px-4 sm:px-6 lg:px-8 flex h-nav-height items-center ">
                     
-                    <div className="tracking-wide text-2xl sm:text-3xl font-bold uppercase truncate">
+                    <div className="tracking-wide text-2xl sm:text-3xl font-bold uppercase truncate hidden">
                         {title}
                     </div>
 
                     <div className="ml-auto">
                         <NavMenu data={navItems} />
                         <MobileMenu data={navItems} />
+                        
                        
                     </div>
                 </div>
